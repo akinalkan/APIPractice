@@ -1,4 +1,4 @@
- API DERSİNDE NELER ÖĞRENECEKSİNİZ?
+API DERSİNDE NELER ÖĞRENECEKSİNİZ?
 
     * POSTMAN
 
@@ -35,14 +35,6 @@
         dönüştürmeleri gerçekleştirmek için de kullanılır.
 
     * API den alınan response'ları bilgisayara text dosyası olarak kaydetme ve doğrulama yapma.
-
-
-
-
-
-
-
-
 
 
 1) API testlerinde Web Driver kullanıyor musunuz? Hangi dependencies'leri kullanıyorsunuz?

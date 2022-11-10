@@ -1,42 +1,33 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
+
     /*
-    “user”: {
-        “id”: 110016,
-        “login”: “leopoldo.reinger”,
-        “firstName”: “Jasmine”,
-        “lastName”: “Stehr”,
-        “email”: “marni.zboncak@yahoo.com”,
-        “activated”: true,
-        “langKey”: “en”,
-        “imageUrl”: null,
-        “resetDate”: null
+        "user": {
+        "id": 110016,
+        "login": "leopoldo.reinger",
+        "firstName": "Jasmine",
+        "lastName": "Stehr",
+        "email": "marni.zboncak@yahoo.com",
+        "activated": true,
+        "langKey": "en",
+        "imageUrl": null,
+        "resetDate": null
+    }
      */
+
     private int id;
     private String login;
     private String firstName;
     private String lastName;
     private String email;
-    private Boolean activated;
+    private boolean activated;
     private String langKey;
     private String imageUrl;
     private String resetDate;
-
-    public User(int id, String login, String firstName, String lastName, String email, Boolean activated, String langKey, String imageUrl, String resetDate) {
-        this.id = id;
-        this.login = login;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.activated = activated;
-        this.langKey = langKey;
-        this.imageUrl = imageUrl;
-        this.resetDate = resetDate;
-    }
-
-    public User() {
-    }
 
     public int getId() {
         return id;
@@ -78,11 +69,11 @@ public class User {
         this.email = email;
     }
 
-    public Boolean getActivated() {
+    public boolean isActivated() {
         return activated;
     }
 
-    public void setActivated(Boolean activated) {
+    public void setActivated(boolean activated) {
         this.activated = activated;
     }
 
@@ -107,6 +98,21 @@ public class User {
     }
 
     public void setResetDate(String resetDate) {
+        this.resetDate = resetDate;
+    }
+
+    public User() {
+    }
+
+    public User(int id, String login, String firstName, String lastName, String email, boolean activated, String langKey, String imageUrl, String resetDate) {
+        this.id = id;
+        this.login = login;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.activated = activated;
+        this.langKey = langKey;
+        this.imageUrl = imageUrl;
         this.resetDate = resetDate;
     }
 

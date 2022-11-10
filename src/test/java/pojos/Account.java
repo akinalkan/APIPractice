@@ -1,5 +1,7 @@
 package pojos;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
     private Integer id;
     private String description;
@@ -112,4 +114,5 @@ public class Account {
                 ", accountlogs='" + accountlogs + '\'' +
                 '}';
     }
+
 }

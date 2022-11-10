@@ -1,7 +1,6 @@
 package day01;
 
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,41 +8,42 @@ import static org.junit.Assert.assertEquals;
 
 public class GetRequest01 {
 
-
     @Test
-    public void test01() {
+    public void test01(){
+
         String url = "https://restful-booker.herokuapp.com/booking";
-        Response response = given().when().get(url);//==> End point'e gondermek icin request olusturduk.
-        //Response response ==>api tarafindan bana donen cevap.
 
-        //Response response2=given().auth().basic("username","password").when().get(url);
-        //auth().basic ile request gondermek icin
-        //response.prettyPrint();
+        Response response = given().when().get(url);
+        //given().when().get(url) -> end point'e göndermek için request oluşturmuş olduk.
+        //Response response -> api tarafından bana dönen response (cevap)
 
-       /* System.out.println("***************************");
-        response.prettyPeek();
-        System.out.println("***************************");
-        response.asPrettyString();
-        System.out.println("***************************");
-        response.peek();*/
-        response.print();//==>String olarak response'u yazdirir.
-        System.out.println("response.statusCode() = " + response.statusCode());
-        System.out.println("response.statusLine() = " + response.statusLine());
-        System.out.println("response.contentType() = " + response.contentType());
+        //Response response = given().auth().basic("username", "password" ).when().get(url)
+        // basic auth ile request göndermek için
 
-        //1-) Junit assert'leri ile API testi yapabiliriz
-        assertEquals("Status kod hatali", 200, response.statusCode());
+        //response.prettyPrint();     //response'taki body'i yazdırır
+
+        //response.prettyPeek();         //response taki herşeyi yazdırır.
+
+        //response.peek();                //header'ı ve string olarak datayı verir
+
+        //response.print();     //string olarak datayı verir
+        // [{"bookingid":1215},{"bookingid":844},{"bookingid":87},{"bookingid":747}, ...]
+
+        System.out.println(response.statusCode());
+        System.out.println(response.statusLine());
+        System.out.println(response.contentType());
+
+
+        // 1) JUnit Assert leri ile API testi yapabiliriz.
+        assertEquals("Status Kod Hatalı",200, response.getStatusCode());
         assertEquals("HTTP/1.1 200 OK", response.statusLine());
         assertEquals("application/json; charset=utf-8", response.contentType());
 
-        //2-) assertthat ile
-        response.then().
-                statusCode(200).
-                contentType("application/json; charset=utf-8").
-                statusLine("HTTP/1.1 200 OK");
-
+        // 2) assertThat ile
+        response.then().assertThat()
+                .statusCode(200)
+                .contentType("application/json; charset=utf-8")
+                .statusLine("HTTP/1.1 200 OK");
 
     }
-
-
 }
